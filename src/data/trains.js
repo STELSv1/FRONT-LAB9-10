@@ -1,0 +1,172 @@
+export const trains = [
+  {
+    id: 1,
+    number: "747 ІС",
+    from: "Київ",
+    to: "Львів",
+    departureDate: "2026-04-15",
+    departureTime: "08:30",
+    arrivalTime: "14:45",
+    duration: "6г 15хв",
+    type: "Інтерсіті+",
+    wagons: [
+      {
+        id: 1,
+        number: 1,
+        type: "Бізнес",
+        seats: generateSeats(1, 32, [3, 7, 12, 18, 25]),
+      },
+      {
+        id: 2,
+        number: 2,
+        type: "Економ",
+        seats: generateSeats(2, 54, [2, 5, 10, 15, 22, 30, 40, 45]),
+      },
+      {
+        id: 3,
+        number: 3,
+        type: "Економ",
+        seats: generateSeats(3, 54, [1, 8, 16, 23, 31, 38]),
+      },
+    ],
+  },
+  {
+    id: 2,
+    number: "099 ІС",
+    from: "Харків",
+    to: "Одеса",
+    departureDate: "2026-04-15",
+    departureTime: "10:15",
+    arrivalTime: "19:30",
+    duration: "9г 15хв",
+    type: "Інтерсіті",
+    wagons: [
+      {
+        id: 4,
+        number: 1,
+        type: "Купе",
+        seats: generateSeats(4, 36, [4, 9, 14, 20, 28]),
+      },
+      {
+        id: 5,
+        number: 2,
+        type: "Плацкарт",
+        seats: generateSeats(5, 54, [3, 7, 11, 19, 27, 35, 43]),
+      },
+    ],
+  },
+  {
+    id: 3,
+    number: "155 Р",
+    from: "Київ",
+    to: "Дніпро",
+    departureDate: "2026-04-16",
+    departureTime: "07:00",
+    arrivalTime: "11:20",
+    duration: "4г 20хв",
+    type: "Регіональний",
+    wagons: [
+      {
+        id: 6,
+        number: 1,
+        type: "Бізнес",
+        seats: generateSeats(6, 24, [2, 6, 10]),
+      },
+      {
+        id: 7,
+        number: 2,
+        type: "Економ",
+        seats: generateSeats(7, 60, [5, 13, 21, 29, 37, 45, 53]),
+      },
+    ],
+  },
+  {
+    id: 4,
+    number: "201 НЧ",
+    from: "Львів",
+    to: "Київ",
+    departureDate: "2026-04-16",
+    departureTime: "22:00",
+    arrivalTime: "06:10",
+    duration: "8г 10хв",
+    type: "Нічний",
+    wagons: [
+      {
+        id: 8,
+        number: 1,
+        type: "СВ",
+        seats: generateSeats(8, 18, [2, 5, 8]),
+      },
+      {
+        id: 9,
+        number: 2,
+        type: "Купе",
+        seats: generateSeats(9, 36, [4, 8, 14, 22]),
+      },
+      {
+        id: 10,
+        number: 3,
+        type: "Плацкарт",
+        seats: generateSeats(10, 54, [6, 12, 18, 24, 30, 36, 42, 48]),
+      },
+    ],
+  },
+  {
+    id: 5,
+    number: "312 ІС",
+    from: "Одеса",
+    to: "Харків",
+    departureDate: "2026-04-17",
+    departureTime: "14:40",
+    arrivalTime: "23:55",
+    duration: "9г 15хв",
+    type: "Інтерсіті",
+    wagons: [
+      {
+        id: 11,
+        number: 1,
+        type: "Бізнес",
+        seats: generateSeats(11, 32, [3, 9, 15, 21]),
+      },
+      {
+        id: 12,
+        number: 2,
+        type: "Економ",
+        seats: generateSeats(12, 54, [7, 14, 20, 28, 35, 42]),
+      },
+    ],
+  },
+  {
+    id: 6,
+    number: "087 ІС+",
+    from: "Київ",
+    to: "Запоріжжя",
+    departureDate: "2026-04-17",
+    departureTime: "09:00",
+    arrivalTime: "13:40",
+    duration: "4г 40хв",
+    type: "Інтерсіті+",
+    wagons: [
+      {
+        id: 13,
+        number: 1,
+        type: "Бізнес",
+        seats: generateSeats(13, 32, [1, 5, 11, 17, 23]),
+      },
+      {
+        id: 14,
+        number: 2,
+        type: "Економ",
+        seats: generateSeats(14, 54, [4, 9, 16, 24, 33, 41, 50]),
+      },
+    ],
+  },
+];
+
+function generateSeats(wagonId, count, bookedNumbers) {
+  return Array.from({ length: count }, (_, i) => ({
+    id: `${wagonId}-${i + 1}`,
+    number: i + 1,
+    booked: bookedNumbers.includes(i + 1),
+  }));
+}
