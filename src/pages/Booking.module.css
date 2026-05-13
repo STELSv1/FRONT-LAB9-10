@@ -1,0 +1,87 @@
+.page { min-height: 100vh; background: #f5f8fc; }
+
+.topBar {
+  background: #fff;
+  border-bottom: 1px solid #e8edf3;
+  padding: 16px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.topInner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.back {
+  text-decoration: none;
+  color: #0057b7;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+
+.back:hover { opacity: 0.7; }
+
+.trainInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.trainNum {
+  font-weight: 800;
+  font-size: 16px;
+  color: #1a2b40;
+  font-family: 'Courier New', monospace;
+}
+
+.route {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a2b40;
+}
+
+.datetime {
+  font-size: 13px;
+  color: #8a9bb0;
+}
+
+.content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 28px;
+  align-items: start;
+}
+
+.left { display: flex; flex-direction: column; gap: 24px; }
+
+.section {
+  background: #fff;
+  border: 1px solid #e8edf3;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a2b40;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 800px) {
+  .content { grid-template-columns: 1fr; }
+  .right { order: -1; }
+}
